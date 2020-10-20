@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+
+  [SerializeField] private List<GameObject> prefabs;
+  
   public Transform target;
 
   public Vector3 offset;
