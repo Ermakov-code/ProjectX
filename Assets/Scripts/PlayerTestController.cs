@@ -6,13 +6,19 @@ using UnityEngine;
 public class PlayerTestController : MonoBehaviour
 {
     public float speed = 1500f;
-
+    public float rotationSpeed = 10f;
+    public float jumpSpeed = 10f;
     public bool move = false;
+
+ 
+    public WheelsColider wheelCol;
 
     public WheelJoint2D backWheel;
     public WheelJoint2D frontWheel;
+    
+    private Rigidbody2D rb;
 
-    public Rigidbody2D rb;
+   
 
     private void Start()
     {
@@ -21,21 +27,45 @@ public class PlayerTestController : MonoBehaviour
 
     private void Update()
     {
+        if (rb.velocity.magnitude < 10)
+        {
+                
+        }
+      
+        
         move = Input.GetButton("Fire1");
     }
 
     private void FixedUpdate()
     {
-        if (move)
+        if (wheelCol.isGrounded)
         {
+            //Debug.Log("run!");
             rb.AddForce(transform.right * speed * Time.fixedDeltaTime, ForceMode2D.Force);
-            //frontWheel.motor = new JointMotor2D {motorSpeed = -speed, maxMotorTorque = frontWheel.motor.maxMotorTorque};
-            //backWheel.motor = new JointMotor2D {motorSpeed = -speed, maxMotorTorque = backWheel.motor.maxMotorTorque};
+            //rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
+            //rb.velocity = transform.right * speed;
+
         }
-        else
+        if (!wheelCol.isGrounded)
         {
-            backWheel.useMotor = false;
-            frontWheel.useMotor = false;
+            
+            if (move)
+            {
+                transform.RotateAround(transform.localPosition, Vector3.back, rotationSpeed *  Time.fixedDeltaTime);
+              
+            }
+            else
+            {
+                transform.RotateAround(transform.localPosition, Vector3.forward, rotationSpeed * Time.fixedDeltaTime);
+                Debug.Log("backRotation");
+            }
         }
+        if (move && wheelCol.isGrounded)
+        {
+            rb.AddForce(transform.up * jumpSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            
+        }
+        
     }
+    
 }
