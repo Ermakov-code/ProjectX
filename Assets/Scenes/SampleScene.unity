@@ -152,7 +152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413295, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: jumpSpeed
-      value: 145.85
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994424641571413295, guid: 3c516231561af134bab199d39ed595e9, type: 3}
+      propertyPath: speed
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994424641571413296, guid: 3c516231561af134bab199d39ed595e9, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413297, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_Suspension.m_Frequency
@@ -196,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994424642541594672, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38526005
+      value: -0.643
       objectReference: {fileID: 0}
     - target: {fileID: 2994424642541594672, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -366,6 +374,18 @@ PrefabInstance:
     - target: {fileID: 2353389601583089812, guid: ead1eb810b604de449cf2e68a676a94f, type: 3}
       propertyPath: m_Name
       value: HillsOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353389601583089832, guid: ead1eb810b604de449cf2e68a676a94f, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353389601583089832, guid: ead1eb810b604de449cf2e68a676a94f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353389601583089832, guid: ead1eb810b604de449cf2e68a676a94f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2353389601583089835, guid: ead1eb810b604de449cf2e68a676a94f, type: 3}
       propertyPath: m_LocalPosition.x
