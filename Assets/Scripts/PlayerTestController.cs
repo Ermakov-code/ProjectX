@@ -56,7 +56,7 @@ public class PlayerTestController : MonoBehaviour
             }
             else
             {
-                transform.RotateAround(transform.localPosition, Vector3.forward, rotationSpeed * Time.fixedDeltaTime);
+                transform.RotateAround(transform.localPosition, Vector3.forward, rotationSpeed   * Time.fixedDeltaTime);
                 Debug.Log("backRotation");
             }
         }
