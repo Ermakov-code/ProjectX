@@ -9,7 +9,9 @@ public class PlayerTestController : MonoBehaviour
     public float rotationSpeed = 10f;
     public float jumpSpeed = 10f;
     public bool move = false;
-
+   
+    
+    private bool isGrounded = false;
  
     public WheelsColider wheelCol;
 
@@ -18,7 +20,7 @@ public class PlayerTestController : MonoBehaviour
     
     private Rigidbody2D rb;
 
-   
+
 
     private void Start()
     {
@@ -27,21 +29,19 @@ public class PlayerTestController : MonoBehaviour
 
     private void Update()
     {
-        if (rb.velocity.magnitude < 10)
-        {
-                
-        }
-      
-        
         move = Input.GetButton("Fire1");
     }
 
+    
+    //wheelCol.isGrounded если с колесами.
     private void FixedUpdate()
     {
         if (wheelCol.isGrounded)
         {
             //Debug.Log("run!");
             rb.AddForce(transform.right * speed * Time.fixedDeltaTime, ForceMode2D.Force);
+           
+            
             //rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
             //rb.velocity = transform.right * speed;
 
@@ -62,10 +62,17 @@ public class PlayerTestController : MonoBehaviour
         }
         if (move && wheelCol.isGrounded)
         {
+            
             rb.AddForce(transform.up * jumpSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
             
         }
         
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        //isGrounded = true;
+        Destroy(gameObject);
+        Debug.Log("You died!");
+    }
 }
