@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413294, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413294, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_Anchor.x
@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413297, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_Suspension.m_Frequency
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2994424641571413297, guid: 3c516231561af134bab199d39ed595e9, type: 3}
       propertyPath: m_Anchor.x
