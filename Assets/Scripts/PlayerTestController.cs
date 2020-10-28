@@ -40,6 +40,7 @@ public class PlayerTestController : MonoBehaviour
         {
             //Debug.Log("run!");
             rb.AddForce(transform.right * speed * Time.fixedDeltaTime, ForceMode2D.Force);
+            
            
             
             //rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
