@@ -12,37 +12,43 @@ public class LineGenerator : MonoBehaviour
     public float wavelength = 100f;
     private Vector2 position;
     public float offsetX = 0f;
+    private GameObject playerPos;
 
     void Start()
     {   
         tempPoints = new List<Vector2>();
+        
         lineRenderer = GetComponent<LineRenderer>();
         edgeCollider2D = GetComponent<EdgeCollider2D>();
         position = new Vector2(0, 0);
-        
-        
+        playerPos = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     
     void Update()
     {
+        offsetX = playerPos.transform.position.x;
         DrawSineWave(position, amplitude, wavelength);
+        
     }
 
     void DrawSineWave(Vector3 startPoint, float amplitude, float wavelength)
     {
+        tempPoints.Clear();
         float x = 0f;
         float y = 0f;
         //float k = 2 * Mathf.PI / wavelength;
-        lineRenderer.positionCount = 30;
+        lineRenderer.positionCount = 50;
         for (int i = 0; i < lineRenderer.positionCount; i++)
         {
-            x = i + offsetX;
-            y = amplitude * Mathf.PerlinNoise(x / wavelength, y / wavelength) - i * 0.1f ;
+            x = i * 0.9f + offsetX;
+            y = amplitude * Mathf.PerlinNoise(x / wavelength, y / wavelength) - i * 0.3f ;
             lineRenderer.SetPosition(i, new Vector3(x, y, 0) + startPoint);
-            //tempPoints.Add(new Vector2(x , y));
+            tempPoints.Add(new Vector3(x , y, 0) + startPoint);
         }
-        //edgeCollider2D.points = tempPoints.ToArray();
+        edgeCollider2D.points = tempPoints.ToArray();
+        
     }
 
 
